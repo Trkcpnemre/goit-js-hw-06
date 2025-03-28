@@ -11,10 +11,11 @@ class Storage {
     }
     removeItem(itemToRemove) {
         let idx = this.#items.indexOf(itemToRemove);
-        this.#items.splice(idx, 1);
+        if (idx !== -1) {
+            this.#items.splice(idx, 1);
+        }
     }
 }
-
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 storage.addItem("Droid");
